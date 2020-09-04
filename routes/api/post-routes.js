@@ -6,7 +6,7 @@ const { Post, User } = require('../../models');
 // GET/api/posts
 router.get('/', (req, res) => {
   Post.findAll({
-    attributes: ['id', 'title', 'post_url', 'created_at'],
+    attributes: ['id', 'title', 'content', 'created_at'],
     order: [['created_at', 'DESC']],
     include: [
       {
@@ -29,7 +29,7 @@ router.get('/:id', (req, res) => {
     where: {
       id: req.params.id,
     },
-    attributes: ['id', 'title', 'post_url', 'created_at'],
+    attributes: ['id', 'title', 'content', 'created_at'],
     include: [
       {
         model: User,
@@ -54,13 +54,13 @@ router.post('/', (req, res) => {
   /* expects
     {
       title: 'Taskmaster goes public!',
-      post_url: 'https://taskmaster.com/press',
+      content: 'MVC allows developers to maintain a true sepqaration of concrens, devising their code between the Model layer for data.',
       user_id: 1
     }
   */
   Post.create({
     title: req.body.title,
-    post_url: req.body.post_url,
+    content: req.body.content,
     user_id: req.body.user_id,
   })
     .then((dbPostData) => {
@@ -76,7 +76,7 @@ router.put('/:id', (req, res) => {
   /* expects
     {
       title: 'Taskmaster goes public!',
-      post_url: 'https://taskmaster.com/press',
+      content: 'MVC allows developers to maintain a true sepqaration of concrens, devising their code between the Model layer for data.',
       user_id: 1
     }
   */
