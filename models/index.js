@@ -2,6 +2,7 @@
 const User = require('./User');
 const Post = require('./Post');
 const Vote = require('./Vote');
+const Comment = require('./Comment');
 //--------------------association between tables -----------------------------//
 // Post to User
 // Post belongsTo User
@@ -42,6 +43,24 @@ Vote.belongsTo(Post, {
 Post.hasMany(Vote, {
   foreignKey: 'post_id',
 });
+//Comment to User
+// Comment belongs to User
+Comment.belongsTo(User, {
+  foreignKey: 'user_id',
+});
+// User has many Comments
+User.hasMany(Comment, {
+  foreignKey: 'user_id',
+});
+// Comment to Post
+// Comment belongs to Post
+Comment.belongsTo(Post, {
+  foreignKey: 'post_id',
+});
+// Post has many Comments
+Post.hasMany(Comment, {
+  foreignKey: 'post_id',
+});
 
 // deconstruct and export all models
-module.exports = { User, Post, Vote };
+module.exports = { User, Post, Vote, Comment };
