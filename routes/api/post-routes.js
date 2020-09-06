@@ -1,6 +1,6 @@
 // import router function from express npm package
 const router = require('express').Router();
-// import post table and user table models
+// import post table, user and vote table models
 const { Post, User, Vote } = require('../../models');
 // connection to database
 const sequelize = require('../../config/connection');
@@ -119,6 +119,7 @@ router.put('/:id', (req, res) => {
   Post.update(
     {
       title: req.body.title,
+      content: req.body.content,
     },
     {
       where: {
