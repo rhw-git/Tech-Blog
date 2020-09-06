@@ -1,7 +1,7 @@
 // import router function from express npm package
 const router = require('express').Router();
 // import post table, user and vote table models
-const { Post, User, Vote } = require('../../models');
+const { Post, User, Vote, Comment } = require('../../models');
 // connection to database
 const sequelize = require('../../config/connection');
 // ------------------ all the routes ------------------- //
@@ -22,6 +22,14 @@ router.get('/', (req, res) => {
     ],
     order: [['created_at', 'DESC']],
     include: [
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username'],
+        },
+      },
       {
         model: User,
         attributes: ['username'],
@@ -55,6 +63,14 @@ router.get('/:id', (req, res) => {
       ],
     ],
     include: [
+      {
+        model: Comment,
+        attributes: ['id', 'comment_text', 'user_id', 'created_at'],
+        include: {
+          model: User,
+          attributes: ['username'],
+        },
+      },
       {
         model: User,
         attributes: ['username'],
