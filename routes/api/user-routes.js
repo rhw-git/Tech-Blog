@@ -1,12 +1,24 @@
 // import router function from express npm package
 const router = require('express').Router();
 // import user table models
-const { User } = require('../../models');
+const { User, Post, Vote } = require('../../models');
 // ------------------ all the routes ------------------- //
 // GET/api/users
 router.get('/', (req, res) => {
   User.findAll({
     attributes: { exclude: ['password'] },
+    include: [
+      {
+        model: Post,
+        attributes: ['id', 'title', 'content', 'created_at'],
+      },
+      {
+        model: Post,
+        attributes: ['title'],
+        through: Vote,
+        as: 'voted_post',
+      },
+    ],
   })
     .then((dbUserData) => {
       res.json(dbUserData);
@@ -20,6 +32,18 @@ router.get('/', (req, res) => {
 router.get('/:id', (req, res) => {
   User.findOne({
     attributes: { exclude: ['password'] },
+    include: [
+      {
+        model: Post,
+        attributes: ['id', 'title', 'content', 'created_at'],
+      },
+      {
+        model: Post,
+        attributes: ['title'],
+        through: Vote,
+        as: 'voted_post',
+      },
+    ],
     where: {
       id: req.params.id,
     },
