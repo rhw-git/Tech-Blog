@@ -5,6 +5,7 @@ const sequelize = require('../config/connection');
 const { Post, User, Comment } = require('../models');
 
 router.get('/', (req, res) => {
+  console.log('HOME ROUTE REQUEST SESSION =>', req.session);
   Post.findAll({
     attributes: [
       'id',
@@ -42,6 +43,15 @@ router.get('/', (req, res) => {
       console.log('RENDER POSTS =>', err);
       res.status(500).json(err);
     });
+});
+
+router.get('/login', (req, res) => {
+  if (req.session.loggedIn) {
+    console.log('LOGGED IN ALREADY=>');
+    res.redirect('/');
+    return;
+  }
+  res.render('login');
 });
 
 module.exports = router;
