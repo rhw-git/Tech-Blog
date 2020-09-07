@@ -30,7 +30,10 @@
                     <a class="nav-link" href="/dashboard">Dashboard</a>
                   </li>
                   <li class="nav-item">
-                    <a class="nav-link" href="/login">Login</a>
+                    <a class="nav-link" href="#login-modal" data-toggle="modal" data-target="#login-modal">Login / Sign UP</a>
+                      {{!-- start of modal --}}
+                      {{>login}}
+                      {{!-- end of modal --}}
                   </li>
                   <li class="nav-item">
                     <a class="nav-link" href="/logout">Logout</a>
