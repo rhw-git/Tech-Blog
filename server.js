@@ -1,5 +1,7 @@
 // load style sheet
 const path = require('path');
+// import helpers
+const helpers = require('./utils/helpers');
 // import express package
 const express = require('express');
 const session = require('express-session');
@@ -19,7 +21,7 @@ const sess = {
 };
 // import from express-handlebars
 const exphbs = require('express-handlebars');
-const hbs = exphbs.create({});
+const hbs = exphbs.create({ helpers });
 
 const app = express();
 const PORT = process.env.PORT || 3001;
@@ -33,10 +35,8 @@ app.use(session(sess));
 // set handlebars as teh template engine of choice
 app.engine('handlebars', hbs.engine);
 app.set('view engine', 'handlebars');
-
 // turn on routes
 app.use(routes);
-
 // sync sequelize models to the database, then turn on the server
 sequelize.sync({ force: false }).then(() => {
   app.listen(PORT, () => {

@@ -5,7 +5,7 @@ test('format_date() return a date string', () => {
   expect(format_date(date)).toBe('3/20/2020');
 });
 
-test('format_pural()', () => {
+test('format_plural()', () => {
   expect(format_pural('tiger', 2)).toBe('tigers');
   expect(format_pural('lion', 1)).toBe('lion');
 });
