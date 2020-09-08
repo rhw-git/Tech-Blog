@@ -127,7 +127,6 @@ router.put('/upvote', (req, res) => {
       });
   }
 });
-
 // PUT/api/posts/:id
 router.put('/:id', (req, res) => {
   /* expects

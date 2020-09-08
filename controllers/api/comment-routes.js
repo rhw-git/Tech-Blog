@@ -31,18 +31,22 @@ router.get('/:id', (req, res) => {
 });
 // POST/api/comments
 router.post('/', (req, res) => {
-  Comment.create({
-    post_id: req.body.post_id,
-    user_id: req.body.user_id,
-    comment_text: req.body.comment_text,
-  })
-    .then((dbCommentData) => {
-      res.json(dbCommentData);
+  // check the session
+  if (req.session) {
+    Comment.create({
+      post_id: req.body.post_id,
+      // use the session's user id
+      user_id: req.session.user_id,
+      comment_text: req.body.comment_text,
     })
-    .catch((err) => {
-      console.log('POST COMMENT =>', err);
-      res.status(500).json(err);
-    });
+      .then((dbCommentData) => {
+        res.json(dbCommentData);
+      })
+      .catch((err) => {
+        console.log('POST COMMENT =>', err);
+        res.status(400).json(err);
+      });
+  }
 });
 // PUT/api/comments
 router.put('/:id', (req, res) => {

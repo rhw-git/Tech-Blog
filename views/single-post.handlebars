@@ -5,7 +5,7 @@
       </div>
       <div class="card-body">
         <p>{{post.content}}</p>
-        <p>posted by {{post.user.username}} on {{post.created_at}}, 
+        <p class="text-muted" style ="font-size:smaller">posted by {{post.user.username}} on {{post.created_at}}, 
            {{#if post.vote_count}}
            {{post.vote_count}} upvotes
            {{else}}
@@ -13,8 +13,8 @@
            {{/if}}
            | 
            <a href="/post/{{post.id}}">
-             {{#if post.comments}}
-             {{post.comments.length}} comment(s)
+             {{#if post.Comments.length}}
+             {{post.Comments.length}} comments
              {{else}}
              0 comment
              {{/if}}
@@ -22,10 +22,11 @@
         </p>
       </div>
   </div>
+  {{#if loggedIn}}
   <div class="mb-5">
-    <form>
+    <form class="comment-form">
       <div class="form-group">
-        <textarea class="form-control" id="comment-form" rows="5" placeholder="add comment"></textarea>
+        <textarea class="form-control" id="comment-body" rows="5" placeholder="add comment"></textarea>
       </div>
       <div class="form-check mb-3">
         <input type="checkbox" class="form-check-input" id="upvote">
@@ -36,11 +37,12 @@
       </div>
     </form>
   </div>
+  {{/if}}
   <div>
     <h5 class="border-bottom pb-1">Previous Comments</h5>
     {{#each post.Comments}}
     <section class="mb-2 comment">
-      <div class="text-muted px-4 pt-1">
+      <div class="text-muted px-4 pt-1" style ="font-size:smaller">
         {{user.username}} on {{created_at}}
       </div>
       <div class="text px-4 pb-1">
@@ -51,6 +53,8 @@
   </div>
 </div>
 {{!-- link in the javascripts --}}
+{{#if loggedIn}}
 <script src="/javascript/comment.js"></script>
 <script src="/javascript/upvote.js"></script>
+{{/if}}
 
