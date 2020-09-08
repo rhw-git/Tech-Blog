@@ -1,0 +1,13 @@
+  <div>
+    <h5 class="border-bottom pb-1">Previous Comments</h5>
+    {{#each this}}
+    <section class="mb-2 comment">
+      <div class="text-muted px-4 pt-1" style ="font-size:smaller">
+        {{user.username}} on {{created_at}}
+      </div>
+      <div class="text px-4 pb-1">
+        {{comment_text}}
+      </div>
+    </section>
+    {{/each}}
+  </div>

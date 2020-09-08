@@ -1,30 +1,5 @@
 <div class ="container">
-  {{#each posts}}
-  <div class="card mb-4">
-      <div class ="card-header">
-        <div class ="row justify-content-around">
-              <h5 class="col-sm-12 col-md-10">{{title}}</h5>
-              <p class ="col-sm-12 col-md-2">Posted by {{username}} on {{created_at}}</p>
-        </div>
-      </div>
-      <div class ="card-body">
-          <p>{{content}}</p>
-          <p>
-            {{#if vote_count}}
-            {{vote_count}} upvotes
-            {{else}}
-            0 upvote
-            {{/if}}
-            |
-            <a href="/post/{{id}}">
-              {{#if Comments.length}}
-              {{Comments.length}} comments
-              {{else}}
-              0 comment
-              {{/if}}
-            </a>
-          </p>
-      </div>
-  </div>
+  {{#each posts as |post|}}
+  {{> post-info post}}
   {{/each}}
 </div>
