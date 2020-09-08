@@ -25,6 +25,7 @@ router.get('/', (req, res) => {
       {
         model: Comment,
         attributes: ['id', 'comment_text', 'user_id', 'created_at'],
+        order: [['created_at', 'DESC']],
         include: {
           model: User,
           attributes: ['username'],
@@ -101,7 +102,7 @@ router.post('/', (req, res) => {
   Post.create({
     title: req.body.title,
     content: req.body.content,
-    user_id: req.body.user_id,
+    user_id: req.session.user_id,
   })
     .then((dbPostData) => {
       res.json(dbPostData);

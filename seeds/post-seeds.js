@@ -10,13 +10,13 @@ const postData = [
     title: 'Authentication vs Authorization',
     content:
       'Authentication means confirming your own identity, whereas authorization means being allowed acces to the system.',
-    user_id: 1,
+    user_id: 4,
   },
   {
     title: 'Object-Relational Mapping',
     content:
       'I have really loved learning about ORMs. It is really simplified the way I create queriers in SQL',
-    user_id: 1,
+    user_id: 4,
   },
 ];
 
