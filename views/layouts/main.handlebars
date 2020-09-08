@@ -26,10 +26,10 @@
                   <li class="nav-item active">
                     <a class="nav-link" href="/">Home <span class="sr-only">(current)</span></a>
                   </li>
+                  {{#if loggedIn}}
                   <li class="nav-item">
                     <a class="nav-link" href="/dashboard">Dashboard</a>
                   </li>
-                  {{#if loggedIn}}
                   <li class="nav-item">
                     {{!-- <a class="nav-link" href="/logout">Logout</a> --}}
                     <button id="logout" class="nav-link border-0 bg-transparent shadow-none" style="outline: none">Logout</button>

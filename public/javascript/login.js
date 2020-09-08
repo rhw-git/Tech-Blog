@@ -45,7 +45,7 @@ async function loginFromHandler(event) {
     // check res
     if (res.ok) {
       console.log('SUCCESSFULLY PUSH INFO TO api/users/login =>');
-      document.location.replace('/');
+      document.location.replace('/dashboard');
     } else {
       alert(res.statusText);
     }
