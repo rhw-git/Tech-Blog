@@ -60,3 +60,7 @@ document
 document
   .querySelector('.login-form')
   .addEventListener('submit', loginFromHandler);
+
+if (window.location.hash === '#login') {
+  $('#login-modal').modal();
+}
