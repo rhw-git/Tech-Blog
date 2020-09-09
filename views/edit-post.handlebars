@@ -1,0 +1,44 @@
+<div class ="container">
+  <div class="mb-5">
+    <form class="edit-post-form">
+      <div class="form-group">
+        <h5 class="border-bottom pb-1">Edit Post</h5>
+        <div class="row">
+          <p class="text-muted mb-0 col-md-6" style ="font-size:smaller">posted by {{post.user.username}} on {{format_date post.created_at}}</p> 
+          <p class="text-muted mb-0 col-md-6 text-xs-left text-md-right" style ="font-size:smaller">{{post.vote_count}} {{format_plural "upvote" post.vote_count}} | <a href="/post/{{id}}">{{post.Comments.length}} {{format_plural "comment" post.Comments.length}}</a></p> 
+        </div>     
+      </div>   
+      <div class="form-group">
+        <label for="post-title">Edit Title</label>
+        <input type="text" class="form-control" id="post-title" placeholder="{{post.title}} // current title" aria-label="post-title" aria-describedby="addon-wrapping"/>
+      </div>
+      <div class="form-group mb-3">
+        <label for="post-content">Edit Post Content</label>
+        <textarea class="form-control" id="post-content" rows="5" placeholder="{{post.content}} // current content"></textarea>
+      </div>
+
+      <div>
+        <button type="submit" class="btn btn-primary edit-post-form">Save Post</button>
+        <button type="button" class="btn btn-secondary delete-post-btn">Delete Post</button>
+      </div>
+    </form>
+  </div>
+</div>
+<div class ="container">
+  <div class="mb-5">
+    <form class="comment-form">
+      <h5 class="border-bottom pb-1 mb-3">Add Comment</h5>  
+      <div class="form-group mb-3">
+        <textarea class="form-control" id="comment-add" rows="5" placeholder="new comment about your editing"></textarea>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary">Add Comment</button>
+      </div>
+    </form>
+  </div>
+  {{> comments post.Comments}}
+</div>
+
+<script src="/javascript/edit-post.js"></script>
+<script src="/javascript/delete-post.js"></script>
+<script src="/javascript/comment.js"></script>

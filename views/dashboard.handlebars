@@ -1,0 +1,37 @@
+<div class ="container">
+  <div class="mb-5">
+    <form class="new-post-form">
+      <div class="form-group">
+        <h5 class="border-bottom pb-1">Create New Post</h5>     
+      </div>   
+      <div class="form-group">
+        <label for="post-title">Title</label>
+        <input type="text" class="form-control" id="post-title" placeholder="new post title" aria-label="password" aria-describedby="addon-wrapping"/>
+      </div>
+      <div class="form-group mb-5">
+        <label for="post-content">Post Content</label>
+        <textarea class="form-control" id="post-content" rows="5" placeholder="new post content"></textarea>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary">Create</button>
+      </div>
+    </form>
+  </div>
+  {{#if posts.length}}
+  <section>
+    <h5 class="border-bottom pb-1">Your Posts</h5>
+    <ol>
+      {{#each posts as |post|}}
+      <li>
+        {{> post-info post}}
+        <div class="ml-4 mt-2">
+          <a style="font-size:smaller" href="/dashboard/edit/{{id}}" class="edit-link">Edit Post</a>
+        </div>
+      </li>
+      {{/each}}
+    </ol>
+  </section>
+  {{/if}}  
+</div>
+
+<script src="/javascript/add-post.js"></script>

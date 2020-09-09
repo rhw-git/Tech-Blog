@@ -1,0 +1,58 @@
+
+<div class="modal login-modal" id="login-modal" tabindex="-1" role="dialog">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-bottom-0">
+            <ul class="nav nav-tabs d-flex justify-content-around col-11" display="flex" id="tabContent">
+              <li class="nav-link border-bottom-0 ">
+                <a href="#login" data-toggle="tab">Login</a>
+              </li>
+              <li class="nav-link border-bottom-0">
+                <a href="#sign-up" data-toggle="tab">Sign Up</a>
+              </li>
+            </ul> 
+            <button type="button" class="close container col-1" data-dismiss="modal" aria-label="Close">
+              <span aria-hidden="true" class="float-none">&times;</span>
+            </button>  
+      </div>
+      <div class ="container">
+        <div class="tab-content">
+          <div class="tab-pane active" id="login">
+            <form class="login-form">
+              <p class="font-weight-light" style ="font-size:smaller"> By Login here, you agree to our User Agreement and Privacy Policy </p>
+              <div class="mb-2">
+                  <input type="text" id="email-login" placeholder="email" aria-label="email" aria-describedby="addon-wrapping"/>
+              </div>
+              <div class="mb-4">
+                <input type="password" id="password-login" placeholder="password" aria-label="password" aria-describedby="addon-wrapping"/>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Login</button>
+              </div>
+            </form>
+          </div>
+          <div class="tab-pane" id="sign-up">
+            <form class="signup-form">
+              <p class="font-weight-light" style ="font-size:smaller"> By Signing Up here, you agree to our User Agreement and Privacy Policy </p>
+              <div class="mb-2">
+                  <input type="text" id="username-signup" placeholder="username"/>
+              </div>
+              <div class="mb-2">
+                  <input type="text" id="email-signup" placeholder="email"/>
+              </div>
+              <div class="mb-4">
+                <input type="password" id="password-signup" placeholder="password"/>
+              </div>
+              <div class="modal-footer">
+                <button type="submit" class="btn btn-primary">Sign Up</button>
+              </div>
+            </form>
+          </div>
+        </div>
+      </div>     
+    </div>
+  </div>
+</div>
+
+{{!-- load javascript --}}
+<script src ="/javascript/login.js"></script>

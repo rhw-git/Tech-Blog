@@ -1,0 +1,26 @@
+<div class ="container">
+  {{> post-info post}}
+  {{#if loggedIn}}
+  <div class="mb-5">
+    <form class="comment-form">
+      <div class="form-group mt-4">
+        <textarea class="form-control" id="comment-body" rows="5" placeholder="add comment"></textarea>
+      </div>
+      <div class="form-check mb-3">
+        <input type="checkbox" class="form-check-input" id="upvote">
+        <label class="form-check-label" for="upvote">Upvote</label>
+      </div>
+      <div>
+        <button type="submit" class="btn btn-primary">Add Comment</button>
+      </div>
+    </form>
+  </div>
+  {{/if}}
+  {{> comments post.Comments}}
+</div>
+{{!-- link in the javascripts --}}
+{{#if loggedIn}}
+<script src="/javascript/comment.js"></script>
+<script src="/javascript/upvote.js"></script>
+{{/if}}
+
