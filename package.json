@@ -21,7 +21,7 @@
   "scripts": {
     "test": "jest",
     "seed": "node seeds/index.js",
-    "start": "node index.js"
+    "start": "node server.js"
   },
   "repository": {
     "type": "git",
