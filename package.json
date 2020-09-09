@@ -20,7 +20,8 @@
   },
   "scripts": {
     "test": "jest",
-    "seed": "node seeds/index.js"
+    "seed": "node seeds/index.js",
+    "start": "node index.js"
   },
   "repository": {
     "type": "git",
