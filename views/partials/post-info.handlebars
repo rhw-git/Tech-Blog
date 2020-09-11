@@ -6,7 +6,7 @@
         <p>{{content}}</p>
         <div class="row">
           <p class="text-muted mb-0 col-md-6" style ="font-size:smaller">posted by {{user.username}} on {{format_date created_at}}</p> 
-          <p class="text-muted mb-0 col-md-6 text-xs-left text-md-right" style ="font-size:smaller">{{vote_count}} {{format_plural "upvote" vote_count}} | <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" Comments.length}}</a></p> 
+          <p class="text-muted mb-0 col-md-6 text-xs-left text-md-right" style ="font-size:smaller">{{vote_count}} {{format_plural "upvote" vote_count}} | <a href="/post/{{id}}">{{comments.length}} {{format_plural "comment" comments.length}}</a></p> 
         </div>
       </div>
   </div>
