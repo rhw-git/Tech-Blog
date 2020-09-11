@@ -62,7 +62,7 @@ Post.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modeName: 'post',
+    modelName: 'post',
   },
 );
 

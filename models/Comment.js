@@ -40,7 +40,7 @@ Comment.init(
     sequelize,
     freezeTableName: true,
     underscored: true,
-    modeName: 'comment',
+    modelName: 'comment',
   },
 );
 
